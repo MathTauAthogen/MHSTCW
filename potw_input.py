@@ -89,18 +89,6 @@ tr:nth-child(even) {
 }
 </style>
 <header><div><h1><a href="../"><img src="https://storage.googleapis.com/millburntutorclub.appspot.com/Logo.png" alt="Logo"></a><b><a href="/" style="text-decoration:none;color:white">Millburn High School Tutoring Club</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></h1><h2><a href="/404" style="text-decoration:none;color:white">Who are we?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2><h2><a href="/404" style="text-decoration:none;color:white">What do we do?</a></h2></div>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCSm5Q8IF_PDsyJQXmDjiSoDlyhmd-OA5U",
-    authDomain: "millburntutorclub.firebaseapp.com",
-    databaseURL: "https://millburntutorclub.firebaseio.com",
-    projectId: "millburntutorclub",
-    storageBucket: "millburntutorclub.appspot.com",
-    messagingSenderId: "565270734161"
-  };
-  firebase.initializeApp(config);
-</script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -937,6 +925,13 @@ class student(webapp2.RequestHandler):
                 output=output+"<tr><td><input type='radio' name='timestamps' value='"+str(i*fifteen.seconds)+"'><td>"+str(((i-1)*fifteen.seconds)/3600)+":"+str((((i-1)*fifteen.seconds)/60)%60).zfill(2)+"-"+str((i*fifteen.seconds)/3600)+":"+str(((i*fifteen.seconds)/60)%60).zfill(2)
         output=output+"</table>"
         self.response.write(json.dumps(output))
+class ws(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(ALL_PAGES_HEADER_TEMPLATE)
+        self.response.write(WEB_SOCKET_TEMPLATE)
+    def post(self):
+        self.response.write(ALL_PAGES_HEADER_TEMPLATE)
+        self.response.write(WEB_SOCKET_TEMPLATE)
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/POTW', Guestbook2),
@@ -964,5 +959,6 @@ app = webapp2.WSGIApplication([
     ('/ajax/mainselect2',mainselect2),
     ('/ajax/date',date),
     ('/ajax/student',student),
-    ('/ava',ava)
+    ('/ava',ava),
+    ('/ws',ws)
 ])

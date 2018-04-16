@@ -4,51 +4,6 @@ import datetime
 from hashlib import sha256
 import uuid
 pepper=""#Implement later
-WEB_SOCKET_TEMPLATE="""
-<script language="javascript" type="text/javascript">
-
-  var wsUri = "ws://echo.websocket.org/";
-
-  function init()
-  {
-    testWebSocket();
-  }
-
-  function testWebSocket()
-  {
-    websocket = new WebSocket(wsUri);
-    websocket.onopen = function(evt) { onOpen(evt) };
-    websocket.onclose = function(evt) { onClose(evt) };
-    websocket.onmessage = function(evt) { onMessage(evt) };
-    websocket.onerror = function(evt) { onError(evt) };
-  }
-
-  function onOpen(evt)
-  {
-  }
-
-  function onClose(evt)
-  {
-  }
-
-  function onMessage(evt)
-  {
-    doSend("WebSocket rocks");
-  }
-
-  function onError(evt)
-  {
-  }
-
-  function doSend(message)
-  {
-    websocket.send(message);
-  }
-
-  window.addEventListener("load", init, false);
-
-  </script>
-"""
 ALL_PAGES_HEADER_TEMPLATE = """
 <style>
 h1{
@@ -925,13 +880,6 @@ class student(webapp2.RequestHandler):
                 output=output+"<tr><td><input type='radio' name='timestamps' value='"+str(i*fifteen.seconds)+"'><td>"+str(((i-1)*fifteen.seconds)/3600)+":"+str((((i-1)*fifteen.seconds)/60)%60).zfill(2)+"-"+str((i*fifteen.seconds)/3600)+":"+str(((i*fifteen.seconds)/60)%60).zfill(2)
         output=output+"</table>"
         self.response.write(json.dumps(output))
-class ws(webapp2.RequestHandler):
-    def get(self):
-        self.response.write(ALL_PAGES_HEADER_TEMPLATE)
-        self.response.write(WEB_SOCKET_TEMPLATE)
-    def post(self):
-        self.response.write(ALL_PAGES_HEADER_TEMPLATE)
-        self.response.write(WEB_SOCKET_TEMPLATE)
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/POTW', Guestbook2),
@@ -959,6 +907,5 @@ app = webapp2.WSGIApplication([
     ('/ajax/mainselect2',mainselect2),
     ('/ajax/date',date),
     ('/ajax/student',student),
-    ('/ava',ava),
-    ('/ws',ws)
+    ('/ava',ava)
 ])

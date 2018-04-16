@@ -43,7 +43,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-<header><div><h1><a href="../"><img src="https://storage.googleapis.com/millburntutorclub.appspot.com/Logo.png" alt="Logo"></a><b><a href="/" style="text-decoration:none;color:white">Millburn High School Tutoring Club</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></h1><h2><a href="/404" style="text-decoration:none;color:white">Who are we?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2><h2><a href="/404" style="text-decoration:none;color:white">What do we do?</a></h2></div>
+<header><div><h1><a href="../"><img src="https://storage.googleapis.com/millburntutorclub.appspot.com/Logo.png" alt="Logo"></a><b><a href="/" style="text-decoration:none;color:white">tutorED</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></h1><h2><a href="/404" style="text-decoration:none;color:white">Who are we?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2><h2><a href="/404" style="text-decoration:none;color:white">What do we do?</a></h2></div>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
